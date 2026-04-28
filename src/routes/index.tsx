@@ -23,7 +23,7 @@ function App() {
 
 				<div className="actions">
 					<Link
-						to="/skills"
+						to="/"
 						className="btn-primary"
 					
 					>
@@ -31,7 +31,7 @@ function App() {
 						<span>Browse Registry</span>
 					</Link>
 					<Link
-						to="/skills/new"
+						to="/"
 						className="btn-secondary"
 					>
 						Publish Skill

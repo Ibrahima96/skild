@@ -5,8 +5,8 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
+import { ClerkProvider } from '@clerk/tanstack-react-start'
 
-import ClerkProvider from "../integrations/clerk/provider";
 
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 
@@ -50,6 +50,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>

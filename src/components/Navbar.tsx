@@ -1,8 +1,12 @@
-import { Show, UserButton } from "@clerk/tanstack-react-start";
+import { Show, UserButton, useUser } from "@clerk/tanstack-react-start";
 import { Link } from "@tanstack/react-router";
 import { LogIn } from "lucide-react";
 
 const Navbar = () => {
+  const { isSignedIn, user, isLoaded } = useUser();
+  if (!isLoaded || !isSignedIn) {
+    return null;
+  }
   return (
     <nav className="navbar">
       <div className="brand">
@@ -16,6 +20,7 @@ const Navbar = () => {
 
       <div className="actions">
         <Show when="signed-in">
+          <span className="font-semibold">{user?.fullName}</span>
           <UserButton />
         </Show>
         <Show when="signed-out">

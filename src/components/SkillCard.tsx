@@ -104,7 +104,7 @@ const SkillCard = ({
           </div>
 
           <div className="actions">
-            <Link to="/skills" className="open" title={`Open ${title}`}>
+            <Link to="/skills/$slug" params={{slug}} className="open" title={`Open ${title}`}>
               <span>Open</span>
               <ArrowUpRight size={14} />
             </Link>

@@ -5,7 +5,7 @@ export const Route = createFileRoute("/skills/$id")({
 });
 
 function RouteComponent() {
-	const { id } = Route.useParams();
+	const { id } = Route.useParams(); 
 
 	return <div>{id}</div>;
 }

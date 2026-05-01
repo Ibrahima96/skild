@@ -41,7 +41,7 @@ export const createSkill = createServerFn({ method: "POST" })
 			author: author._id,
 			title: data.title,
 			description: data.description,
-			tags: data.tags,
+			tags: data.tags, 
 			installCommand: data.installCommand ?? null,
 			promptConfig: data.promptConfig ?? null,
 			usageExample: data.usageExample ?? null,

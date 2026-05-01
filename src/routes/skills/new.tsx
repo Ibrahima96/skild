@@ -10,7 +10,7 @@ type SkillFormValues = {
 	tags: string;
 	installCommand: string;
 	promptConfig: string;
-	usageExample: string;
+	usageExample: string; 
 };
 
 export const Route = createFileRoute("/skills/new")({

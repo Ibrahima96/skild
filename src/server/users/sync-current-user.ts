@@ -13,7 +13,7 @@ const syncUserSchema = z.object({
 
 export const syncCurrentUserToDb = createServerFn({ method: "POST" })
 	.inputValidator(syncUserSchema)
-	.handler(async ({ data }) => {
+	.handler(async ({ data }) => { 
 		await connectToDatabase();
 
 		await UserModel.findOneAndUpdate(

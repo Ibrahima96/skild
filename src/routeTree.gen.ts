@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SkillsNewRouteImport } from './routes/skills/new'
 import { Route as SkillsIdRouteImport } from './routes/skills/$id'
+import { Route as SkillsIdEditRouteImport } from './routes/skills/$id/edit'
 import { Route as _authSignUpSplatRouteImport } from './routes/__auth/sign-up.$'
 import { Route as _authSignInSplatRouteImport } from './routes/__auth/sign-in.$'
 
@@ -30,6 +31,11 @@ const SkillsIdRoute = SkillsIdRouteImport.update({
   path: '/skills/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SkillsIdEditRoute = SkillsIdEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => SkillsIdRoute,
+} as any)
 const _authSignUpSplatRoute = _authSignUpSplatRouteImport.update({
   id: '/__auth/sign-up/$',
   path: '/sign-up/$',
@@ -43,31 +49,46 @@ const _authSignInSplatRoute = _authSignInSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/skills/$id': typeof SkillsIdRoute
+  '/skills/$id': typeof SkillsIdRouteWithChildren
   '/skills/new': typeof SkillsNewRoute
   '/sign-in/$': typeof _authSignInSplatRoute
   '/sign-up/$': typeof _authSignUpSplatRoute
+  '/skills/$id/edit': typeof SkillsIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/skills/$id': typeof SkillsIdRoute
+  '/skills/$id': typeof SkillsIdRouteWithChildren
   '/skills/new': typeof SkillsNewRoute
   '/sign-in/$': typeof _authSignInSplatRoute
   '/sign-up/$': typeof _authSignUpSplatRoute
+  '/skills/$id/edit': typeof SkillsIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/skills/$id': typeof SkillsIdRoute
+  '/skills/$id': typeof SkillsIdRouteWithChildren
   '/skills/new': typeof SkillsNewRoute
   '/__auth/sign-in/$': typeof _authSignInSplatRoute
   '/__auth/sign-up/$': typeof _authSignUpSplatRoute
+  '/skills/$id/edit': typeof SkillsIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/skills/$id' | '/skills/new' | '/sign-in/$' | '/sign-up/$'
+  fullPaths:
+    | '/'
+    | '/skills/$id'
+    | '/skills/new'
+    | '/sign-in/$'
+    | '/sign-up/$'
+    | '/skills/$id/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/skills/$id' | '/skills/new' | '/sign-in/$' | '/sign-up/$'
+  to:
+    | '/'
+    | '/skills/$id'
+    | '/skills/new'
+    | '/sign-in/$'
+    | '/sign-up/$'
+    | '/skills/$id/edit'
   id:
     | '__root__'
     | '/'
@@ -75,11 +96,12 @@ export interface FileRouteTypes {
     | '/skills/new'
     | '/__auth/sign-in/$'
     | '/__auth/sign-up/$'
+    | '/skills/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  SkillsIdRoute: typeof SkillsIdRoute
+  SkillsIdRoute: typeof SkillsIdRouteWithChildren
   SkillsNewRoute: typeof SkillsNewRoute
   _authSignInSplatRoute: typeof _authSignInSplatRoute
   _authSignUpSplatRoute: typeof _authSignUpSplatRoute
@@ -108,6 +130,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkillsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/skills/$id/edit': {
+      id: '/skills/$id/edit'
+      path: '/edit'
+      fullPath: '/skills/$id/edit'
+      preLoaderRoute: typeof SkillsIdEditRouteImport
+      parentRoute: typeof SkillsIdRoute
+    }
     '/__auth/sign-up/$': {
       id: '/__auth/sign-up/$'
       path: '/sign-up/$'
@@ -125,9 +154,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface SkillsIdRouteChildren {
+  SkillsIdEditRoute: typeof SkillsIdEditRoute
+}
+
+const SkillsIdRouteChildren: SkillsIdRouteChildren = {
+  SkillsIdEditRoute: SkillsIdEditRoute,
+}
+
+const SkillsIdRouteWithChildren = SkillsIdRoute._addFileChildren(
+  SkillsIdRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  SkillsIdRoute: SkillsIdRoute,
+  SkillsIdRoute: SkillsIdRouteWithChildren,
   SkillsNewRoute: SkillsNewRoute,
   _authSignInSplatRoute: _authSignInSplatRoute,
   _authSignUpSplatRoute: _authSignUpSplatRoute,

@@ -14,6 +14,7 @@ export const dummySkills: SkillRecord[] = [
 		author: {
 			clerkId: "user_2a1b3c4d",
 			email: "dev1@example.com",
+			fullName: "Dev One",
 			username: "dev1",
 			imageUrl: null,
 		},
@@ -33,6 +34,7 @@ export const dummySkills: SkillRecord[] = [
 		author: {
 			clerkId: "user_5e6f7g8h",
 			email: "dev2@example.com",
+			fullName: "Dev Two",
 			username: "dev2",
 			imageUrl: null,
 		},
@@ -52,6 +54,7 @@ export const dummySkills: SkillRecord[] = [
 		author: {
 			clerkId: "user_9i0j1k2l",
 			email: "dev3@example.com",
+			fullName: "Dev Three",
 			username: "dev3",
 			imageUrl: null,
 		},
@@ -71,6 +74,7 @@ export const dummySkills: SkillRecord[] = [
 		author: {
 			clerkId: "user_3m4n5o6p",
 			email: "dev4@example.com",
+			fullName: "Dev Four",
 			username: "dev4",
 			imageUrl: null,
 		},
@@ -90,6 +94,7 @@ export const dummySkills: SkillRecord[] = [
 		author: {
 			clerkId: "user_7q8r9s0t",
 			email: "dev5@example.com",
+			fullName: "Dev Five",
 			username: "dev5",
 			imageUrl: null,
 		},

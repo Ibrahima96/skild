@@ -62,11 +62,11 @@ const SkillCard = ({
 					<div className="author">
 						<img
 							src={author.imageUrl ?? "/logo512.png"}
-							alt={`${author.username} avatar`}
+							alt={`${author.fullName} avatar`}
 							className="avatar"
 						/>
 						<div className="author-copy">
-							<p>{author.username}</p>
+							<p>{author.fullName}</p>
 							<p>
 								{createdAt
 									? new Date(createdAt).toLocaleDateString()
@@ -112,7 +112,7 @@ const SkillCard = ({
 
 						<div className="comments">
 							<MessageSquare size={14} />
-							<span>{author.email ? 1 : 0}</span>
+							<span>{author.username ? 1 : 0}</span>
 						</div>
 					</div>
 

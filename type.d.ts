@@ -10,6 +10,7 @@ interface SkillRecord {
   author: {
     clerkId: string;
     email: string;
+    fullName: string;
     username: string;
     imageUrl?: string | null;
   };

@@ -1,13 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Terminal } from "lucide-react";
 import SkillCard from "#/components/SkillCard";
-import { dummySkills } from "#/lib/dummy-skills";
+import { getLatestSkills } from "#/server/skills/get-latest-skills";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({
+	loader: () => getLatestSkills(),
+	component: App,
+});
 
 function App() {
-  return (
-   <div id="home">
+	const skills = Route.useLoaderData();
+
+	return (
+		<div id="home">
 			<section className="hero">
 				<div className="copy">
 					<h1>
@@ -17,7 +22,7 @@ function App() {
 					<p>
 						A high-performance registry for procedural agent skills. Discover,
 						publish, and operate reusable agent capabilities from a route-driven
-						workspace. 
+						workspace.
 					</p>
 				</div>
 
@@ -25,15 +30,11 @@ function App() {
 					<Link
 						to="/"
 						className="btn-primary"
-					
 					>
 						<Terminal size={18} />
 						<span>Browse Registry</span>
 					</Link>
-					<Link
-						to="/skills/new"
-						className="btn-secondary"
-					>
+					<Link to="/skills/new" className="btn-secondary">
 						Publish Skill
 					</Link>
 				</div>
@@ -51,9 +52,9 @@ function App() {
 				</div>
 
 				<div>
-					{dummySkills.length > 0 ? (
+					{skills.length > 0 ? (
 						<div className="skills-grid">
-							{dummySkills.map((skill) => (
+							{skills.map((skill) => (
 								<SkillCard key={skill.id} {...skill} />
 							))}
 						</div>
@@ -63,5 +64,5 @@ function App() {
 				</div>
 			</section>
 		</div>
-  );
+	);
 }

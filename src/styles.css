@@ -496,7 +496,7 @@
     }
 
     .avatar {
-      @apply h-8 w-8 rounded-md object-cover opacity-90;
+      @apply h-8 w-8 rounded-full object-cover opacity-90;
     }
 
     .author-copy {
@@ -596,6 +596,330 @@
     }
   }
 
+  #skill-detail {
+    @apply relative z-10 px-4 md:px-12;
+
+    .detail-shell {
+      @apply flex flex-col gap-10;
+    }
+
+    .detail-card,
+    .edit-card {
+      @apply rounded-xl border border-border-subtle bg-surface p-6 shadow-sm md:p-10;
+    }
+
+    .detail-topline,
+    .edit-header {
+      @apply flex flex-col gap-4 md:flex-row md:items-start md:justify-between;
+    }
+
+    .detail-back {
+      @apply w-fit text-sm font-medium text-text-muted transition-colors hover:text-white;
+    }
+
+    .detail-actions,
+    .edit-actions {
+      @apply flex flex-col gap-3 sm:flex-row;
+    }
+
+    .detail-header {
+      @apply mt-8 flex flex-col gap-8 border-y border-border-subtle py-8;
+    }
+
+    .detail-meta {
+      @apply flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between;
+    }
+
+    .detail-author {
+      @apply flex items-center gap-3;
+
+      .avatar {
+        @apply h-12 w-12 rounded-full object-cover;
+      }
+    }
+
+    .detail-author-name {
+      @apply text-sm font-mono text-text-muted;
+    }
+
+    .detail-author-subtitle {
+      @apply text-xs text-text-muted/70;
+    }
+
+    .detail-tags {
+      @apply flex flex-wrap gap-2;
+    }
+
+    .detail-tag {
+      @apply rounded-md bg-elevated px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-text-muted;
+    }
+
+    .detail-copy {
+      @apply max-w-4xl;
+
+      h1 {
+        @apply text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl;
+      }
+
+      p {
+        @apply mt-4 max-w-3xl text-base leading-relaxed text-text-muted md:text-lg;
+      }
+    }
+
+    .detail-grid {
+      @apply mt-8 grid gap-4 md:grid-cols-3;
+    }
+
+    .detail-panel {
+      @apply rounded-lg border border-border-subtle bg-base p-5;
+
+      h2 {
+        @apply mb-3 text-xs font-bold uppercase tracking-widest text-text-muted;
+      }
+
+      p,
+      pre {
+        @apply text-sm leading-relaxed text-foreground;
+      }
+
+      pre {
+        @apply whitespace-pre-wrap font-mono;
+      }
+    }
+
+    .detail-error {
+      @apply mt-6 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200;
+    }
+  }
+
+  #skill-edit {
+    @apply relative z-10 px-4 py-8 md:px-12;
+
+    .edit-shell {
+      @apply mx-auto flex w-full max-w-6xl flex-col gap-6;
+    }
+
+    .detail-back {
+      @apply w-fit text-sm font-medium text-text-muted transition-colors hover:text-white;
+    }
+
+    .edit-layout {
+      @apply grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px];
+    }
+
+    .edit-main {
+      @apply flex flex-col gap-6;
+    }
+
+    .edit-hero {
+      @apply overflow-hidden rounded-xl border border-border-subtle bg-linear-to-br from-elevated via-base to-elevated p-6 shadow-sm md:p-8;
+    }
+
+    .edit-badge {
+      @apply inline-flex w-fit items-center rounded-full border border-border-subtle bg-base px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-text-muted;
+    }
+
+    .edit-hero h1 {
+      @apply mt-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl;
+    }
+
+    .edit-hero p {
+      @apply mt-4 max-w-3xl text-base leading-relaxed text-text-muted md:text-lg;
+    }
+
+    .edit-meta {
+      @apply mt-6 grid gap-3 sm:grid-cols-3;
+    }
+
+    .edit-meta-item {
+      @apply rounded-lg border border-border-subtle bg-base/80 p-4;
+    }
+
+    .edit-meta-label {
+      @apply block text-[10px] font-bold uppercase tracking-widest text-text-muted;
+    }
+
+    .edit-meta-value {
+      @apply mt-2 block text-sm font-semibold text-foreground;
+    }
+
+    .edit-card {
+      @apply rounded-xl border border-border-subtle bg-surface p-6 shadow-sm md:p-8;
+    }
+
+    .edit-form {
+      @apply grid gap-5;
+    }
+
+    .edit-grid {
+      @apply grid gap-5 md:grid-cols-2;
+    }
+
+    .edit-sidebar {
+      @apply flex flex-col gap-4;
+    }
+
+    .edit-panel {
+      @apply rounded-xl border border-border-subtle bg-surface p-5;
+
+      h2 {
+        @apply text-xs font-bold uppercase tracking-widest text-text-muted;
+      }
+    }
+
+    .edit-list {
+      @apply mt-4 grid gap-3;
+    }
+
+    .edit-list-item {
+      @apply flex gap-3 rounded-lg border border-border-subtle bg-base/60 p-3;
+    }
+
+    .edit-list-dot {
+      @apply mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-primary;
+    }
+
+    .edit-list-copy {
+      @apply text-sm leading-relaxed text-foreground;
+    }
+
+    .edit-panel-copy {
+      @apply mt-4 text-sm leading-relaxed text-text-muted;
+    }
+
+    .edit-actions {
+      @apply flex flex-col gap-3 pt-2 sm:flex-row;
+    }
+
+    .form-item {
+      @apply mb-0!;
+    }
+  }
+
+  #skill-create {
+    @apply relative z-10 px-4 py-8 md:px-12;
+
+    .create-shell {
+      @apply mx-auto flex w-full max-w-6xl flex-col gap-6;
+    }
+
+    .create-back {
+      @apply w-fit text-sm font-medium text-text-muted transition-colors hover:text-white;
+    }
+
+    .create-layout {
+      @apply grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px];
+    }
+
+    .create-main {
+      @apply flex flex-col gap-6;
+    }
+
+    .create-hero {
+      @apply overflow-hidden rounded-xl border border-border-subtle bg-linear-to-br from-elevated via-base to-elevated p-6 shadow-sm md:p-8;
+    }
+
+    .create-hero-content {
+      @apply max-w-3xl;
+    }
+
+    .create-badge {
+      @apply inline-flex w-fit items-center gap-2 rounded-full border border-border-subtle bg-base px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-text-muted;
+    }
+
+    .create-title {
+      @apply mt-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl;
+    }
+
+    .create-copy {
+      @apply mt-4 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg;
+    }
+
+    .create-kpis {
+      @apply mt-6 grid gap-3 sm:grid-cols-3;
+    }
+
+    .create-kpi {
+      @apply rounded-lg border border-border-subtle bg-base/80 p-4;
+    }
+
+    .create-kpi-label {
+      @apply text-[10px] font-bold uppercase tracking-widest text-text-muted;
+    }
+
+    .create-kpi-value {
+      @apply mt-2 text-sm font-semibold text-foreground;
+    }
+
+    .create-card {
+      @apply rounded-xl border border-border-subtle bg-surface p-6 shadow-sm md:p-8;
+    }
+
+    .create-form {
+      @apply grid gap-5;
+    }
+
+    .create-grid {
+      @apply grid gap-5 md:grid-cols-2;
+    }
+
+    .create-sidebar {
+      @apply flex flex-col gap-4;
+    }
+
+    .create-panel {
+      @apply rounded-xl border border-border-subtle bg-surface p-5;
+
+      h2 {
+        @apply text-xs font-bold uppercase tracking-widest text-text-muted;
+      }
+    }
+
+    .create-list {
+      @apply mt-4 grid gap-3;
+    }
+
+    .create-list-item {
+      @apply flex gap-3 rounded-lg border border-border-subtle bg-base/60 p-3;
+    }
+
+    .create-list-dot {
+      @apply mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-primary;
+    }
+
+    .create-list-copy {
+      @apply text-sm leading-relaxed text-foreground;
+    }
+
+    .create-list-copy span {
+      @apply block text-xs text-text-muted;
+    }
+
+    .create-footer {
+      @apply flex flex-col gap-3 pt-2 sm:flex-row;
+    }
+
+    .create-error {
+      @apply rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200;
+    }
+
+    .form-item {
+      @apply mb-0!;
+    }
+
+    .input-affix {
+      @apply relative;
+
+      svg {
+        @apply pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-text-muted;
+      }
+    }
+
+    .input-field-affix {
+      @apply pl-10!;
+    }
+  }
+
   .form-item {
     @apply flex! flex-col! gap-2! mb-10 last:mb-0!;
   }
@@ -646,6 +970,10 @@
 
   .btn-primary {
     @apply bg-primary! text-primary-foreground! font-semibold! text-sm! px-6! py-2.5! rounded-sm! transition-all! hover:bg-accent-secondary! cursor-pointer! flex! items-center! justify-center! gap-2! border! border-primary!;
+
+    &.destructive {
+      @apply bg-red-500! border-red-500! text-white! hover:bg-red-600!;
+    }
   }
 
   .btn-secondary {

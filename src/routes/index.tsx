@@ -16,13 +16,13 @@ function App() {
 			<section className="hero">
 				<div className="copy">
 					<h1>
-						The Registry for <br />
-						<span className="text-gradient">Agentic Intelligence</span>
+						Le registre de <br />
+						<span className="text-gradient">l'intelligence agentique</span>
 					</h1>
 					<p>
-						A high-performance registry for procedural agent skills. Discover,
-						publish, and operate reusable agent capabilities from a route-driven
-						workspace.
+						Un registre haute performance pour les compétences d'agents
+						procéduraux. Découvrez, publiez et exploitez des capacités
+						réutilisables depuis un espace de travail piloté par routes.
 					</p>
 				</div>
 
@@ -32,10 +32,10 @@ function App() {
 						className="btn-primary"
 					>
 						<Terminal size={18} />
-						<span>Browse Registry</span>
+						<span>Parcourir le registre</span>
 					</Link>
 					<Link to="/skills/new" className="btn-secondary">
-						Publish Skill
+						Publier un skill
 					</Link>
 				</div>
 			</section>
@@ -43,11 +43,11 @@ function App() {
 			<section className="latest">
 				<div className="space-y-2">
 					<h2>
-						Recently Created <span className="text-gradient">Skills</span>
+						Compétences <span className="text-gradient">récentes</span>
 					</h2>
 					<p>
-						{" "}
-						Latest skills loaded from database in descending creation order.
+						Les dernières compétences chargées depuis la base de données, triées
+						par date de création décroissante.
 					</p>
 				</div>
 
@@ -59,7 +59,7 @@ function App() {
 							))}
 						</div>
 					) : (
-						<p>No skills have been created yet.</p>
+						<p>Aucune compétence n'a encore été créée.</p>
 					)}
 				</div>
 			</section>

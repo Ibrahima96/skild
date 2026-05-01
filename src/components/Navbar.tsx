@@ -56,7 +56,7 @@ const Navbar = () => {
         <Show when="signed-out">
           <Link to="/sign-in/$" className="btn-primary">
             <LogIn size={16} />
-            Sign in
+            Se connecter
           </Link>
         </Show>
       </div>

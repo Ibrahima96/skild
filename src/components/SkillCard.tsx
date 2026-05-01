@@ -21,7 +21,7 @@ const SkillCard = ({
 	usageExample,
 }: SkillRecord) => {
 	const [copied, setCopied] = useState(false);
-	const primaryTag = tags[0] ?? "General";
+	const primaryTag = tags[0] ?? "Général";
 
 	const handleCopy = async () => {
 		if (!installCommand) {
@@ -42,7 +42,7 @@ const SkillCard = ({
 				to="/skills/$id"
 				params={{ id }}
 				tabIndex={-1}
-				aria-label={`open ${title}`}
+				aria-label={`ouvrir ${title}`}
 				className="overlay"
 			/>
 
@@ -70,7 +70,7 @@ const SkillCard = ({
 							<p>
 								{createdAt
 									? new Date(createdAt).toLocaleDateString()
-									: "Unknown date"}
+									: "Date inconnue"}
 							</p>
 						</div>
 					</div>
@@ -91,14 +91,14 @@ const SkillCard = ({
 				<div className="command">
 					<div className="command-copy">
 						<span>{">_"}</span>
-						<p>{installCommand ?? "No install command"}</p>
+						<p>{installCommand ?? "Aucune commande d'installation"}</p>
 					</div>
 					<button
 						type="button"
 						className="copy"
 						onClick={handleCopy}
 						disabled={!installCommand}
-						aria-label="Copy install command"
+						aria-label="Copier la commande d'installation"
 					>
 						{copied ? <Check size={16} /> : <Copy size={16} />}
 					</button>
@@ -121,16 +121,16 @@ const SkillCard = ({
 							to="/skills/$id"
 							params={{ id }}
 							className="open"
-							title={`Open ${title}`}
+							title={`Ouvrir ${title}`}
 						>
-							<span>Open</span>
+							<span>Ouvrir</span>
 							<ArrowUpRight size={14} />
 						</Link>
 
 						<button
 							type="button"
 							className="save"
-							aria-label="Saved state"
+							aria-label="État enregistré"
 							disabled
 						>
 							<Bookmark size={16} />

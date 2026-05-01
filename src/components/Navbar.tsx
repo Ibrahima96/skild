@@ -1,12 +1,42 @@
 import { Show, UserButton, useUser } from "@clerk/tanstack-react-start";
 import { Link } from "@tanstack/react-router";
 import { LogIn } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { syncCurrentUserToDb } from "#/server/users/sync-current-user";
 
 const Navbar = () => {
-  const { isSignedIn, user, isLoaded } = useUser();
-  if (!isLoaded || !isSignedIn) {
-    return null;
-  }
+  const {  user } = useUser();
+  const syncedUserRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const primaryEmail = user?.primaryEmailAddress?.emailAddress;
+    const userId = user?.id;
+
+    if (!userId || !primaryEmail) {
+      return;
+    }
+
+    if (syncedUserRef.current === userId) {
+      return;
+    }
+
+    syncCurrentUserToDb({
+      data: {
+        clerkId: userId,
+        email: primaryEmail,
+        username: user.username,
+        name: user.fullName,
+        imageUrl: user.imageUrl,
+      },
+    })
+      .then(() => {
+        syncedUserRef.current = userId;
+      })
+      .catch((error: Error) => {
+        console.error("Failed to sync Clerk user to MongoDB:", error);
+      });
+  }, [user]);
+ 
   return (
     <nav className="navbar">
       <div className="brand">

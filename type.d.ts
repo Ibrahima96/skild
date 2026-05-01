@@ -1,12 +1,16 @@
 interface SkillRecord {
   id: string;
-  title: string; // Write Code
-  slug: string; // write-code
+  title: string;
   description: string;
-  category: string;
   tags: string[];
-  installCommand: string;
+  installCommand?: string;
+  promptConfig?: string;
+  usageExample?: string;
   createdAt: string | null;
-  authorClerkId: string | null;
-  authorEmail: string | null;
+  author: {
+    clerkId: string;
+    email: string;
+    username: string;
+    imageUrl?: string | null;
+  };
 }

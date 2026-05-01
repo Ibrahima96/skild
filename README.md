@@ -53,6 +53,7 @@ npm run check
 ## Setting up Clerk
 
 - Set the `VITE_CLERK_PUBLISHABLE_KEY` in your `.env.local`.
+- If you want Clerk users to sync into MongoDB, add `CLERK_WEBHOOK_SIGNING_SECRET` and configure a Clerk webhook to point at `/api/clerk-webhook`.
 
 
 ## Shadcn

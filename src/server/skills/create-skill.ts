@@ -28,7 +28,7 @@ export const createSkill = createServerFn({ method: "POST" })
 			throw new Error("Unauthorized");
 		}
 
-		await connectToDatabase();
+	 await connectToDatabase();
 
 		const author = await UserModel.findOne({ clerkId: userId });
 		if (!author) {

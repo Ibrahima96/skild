@@ -27,7 +27,7 @@ export const syncCurrentUserToDb = createServerFn({ method: "POST" })
 			},
 			{
 				upsert: true,
-				new: true,
+				returnDocument: "after",
 				setDefaultsOnInsert: true,
 			},
 		);

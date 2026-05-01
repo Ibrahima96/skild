@@ -31,7 +31,7 @@ function App() {
 						<span>Browse Registry</span>
 					</Link>
 					<Link
-						to="/"
+						to="/skills/new"
 						className="btn-secondary"
 					>
 						Publish Skill

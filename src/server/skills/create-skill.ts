@@ -7,7 +7,7 @@ import { SkillModel, UserModel } from "#/server/models";
 const createSkillSchema = z.object({
 	title: z.string().trim().min(3, "Le titre doit contenir au moins 3 caracteres"),
 	description: z
-		.string()
+		.string() 
 		.trim()
 		.min(10, "La description doit contenir au moins 10 caracteres"),
 	tags: z
